@@ -1,0 +1,23 @@
+@import url(../../node_modules/normalize.css/normalize.css);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-size: 1rem;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+li {
+  list-style: none; }
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer; }
