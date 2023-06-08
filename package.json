@@ -15,12 +15,9 @@
     "stylelint": "^15.2.0",
     "stylelint-config-standard": "^30.0.1",
     "stylelint-config-standard-scss": "^7.0.1",
-    "stylelint-scss": "^4.4.0"
+    "stylelint-scss": "^4.4.0",
+    "node-sass": "^9.0.0"
   },
   "author": "Pavel Nikonorov",
-  "license": "ISC",
-  "dependencies": {
-    "node-sass": "^9.0.0",
-    "normalize.css": "^8.0.1"
-  }
+  "license": "ISC"
 }
