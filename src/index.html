@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="./svg/favicon.svg" sizes="any" type="image/svg+xml" />
@@ -18,47 +18,85 @@
   <body>
     <header class="header">
       <div class="container">
-        <div class="row">
-          <div class="four columns"><h1>ODIN-LIBRARY</h1></div>
-          <div class="eight columns nav">
-            <button class="button-primary">LOGIN</button>
+        <div class="row header__row">
+          <div class="six columns"><h1 class="header__title">ODIN-LIBRARY</h1></div>
+          <div class="six columns nav">
+            <button class="button">LOGIN</button>
           </div>
+        </div>
+        <div class="row header__desc">
+          <p>
+            This is a project for
+            <a href="www.theodinproject.com">The Odin Project</a> in which I have to make a library
+            using object constructors and localStorage.
+          </p>
         </div>
       </div>
     </header>
-    <main>
+    <main class="main">
       <section class="form">
         <div class="container">
           <form>
-            <div class="row">
-              <div class="six columns">
-                <label for="exampleEmailInput">Your email</label>
-                <input
-                  class="u-full-width"
-                  type="email"
-                  placeholder="test@mailbox.com"
-                  id="exampleEmailInput"
-                />
+            <div class="row form__row">
+              <div class="four columns">
+                <label for="book-input">Book</label>
+                <input class="u-full-width" type="text" placeholder="name" id="book-input" />
               </div>
-              <div class="six columns">
-                <label for="exampleRecipientInput">Reason for contacting</label>
-                <select class="u-full-width" id="exampleRecipientInput">
-                  <option value="Option 1">Questions</option>
-                  <option value="Option 2">Admiration</option>
-                  <option value="Option 3">Can I get your number?</option>
+              <div class="three columns">
+                <label for="author-input">Author</label>
+                <input class="u-full-width" type="text" placeholder="name" id="author-input" />
+              </div>
+              <div class="three columns">
+                <label for="status-input">Status</label>
+                <select class="u-full-width" id="status-input">
+                  <option value="read">Read</option>
+                  <option value="unread">Unread</option>
                 </select>
               </div>
+              <div class="two columns submit-btn">
+                <button class="button button--sucsess" type="submit">Submit</button>
+              </div>
             </div>
-            <label for="exampleMessage">Message</label>
-            <textarea class="u-full-width" placeholder="Hi Dave …" id="exampleMessage"></textarea>
-            <label class="example-send-yourself-copy">
-              <input type="checkbox" />
-              <span class="label-body">Send a copy to yourself</span>
-            </label>
-            <input class="button-primary" type="submit" value="Submit" />
           </form>
         </div>
       </section>
+
+      <section class="library">
+        <div class="container">
+          <table class="table u-full-width">
+            <thead>
+              <tr>
+                <th>Book</th>
+                <th>Author</th>
+                <th>Status toggle</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <tr>
+                <td>Dave Gamache</td>
+                <td>Pavel</td>
+                <td><a class="button" href="#">READ</a></td>
+                <td><button class="button button--danger">Delete</button></td>
+              </tr>
+              <tr>
+                <td>Dwayne Johnson</td>
+                <td>Pavel</td>
+                <td><a class="button" href="#">READ</a></td>
+                <td><button class="button button--danger">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </main>
+    <div class="footer">
+      <p>
+        Copyright © 2023
+      </p>
+      <a class="footer__link" href="https://github.com/Pavel-nk95" target="_blank">
+        <img class="footer__icon" src="./svg/github.svg" alt="github" />Built by Pavel-nk95</a
+      >
+    </div>
   </body>
 </html>

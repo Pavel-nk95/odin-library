@@ -6,4 +6,4 @@ lint:
 	npx htmlhint ./src/*.html
 
 sass:
-  npm run sass
+	npm run sass
