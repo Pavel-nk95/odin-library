@@ -34,28 +34,58 @@
       </div>
     </header>
     <main class="main">
-      <section class="form">
+      <section class="main-form">
         <div class="container">
-          <form name="test" method="post">
+          <form class="form" name="test" method="post">
             <div class="row form__row">
-              <div class="four columns">
-                <label for="book-input">Book</label>
-                <input class="u-full-width" type="text" placeholder="name" id="book-input" />
-              </div>
               <div class="three columns">
+                <label for="book-input">Book</label>
+                <input
+                  class="u-full-width"
+                  name="book"
+                  type="text"
+                  placeholder="book:"
+                  id="book-input"
+                  minlength="2"
+                  maxlength="30"
+                  required
+                />
+              </div>
+              <div class="two columns">
                 <label for="author-input">Author</label>
-                <input class="u-full-width" type="text" placeholder="name" id="author-input" />
+                <input
+                  class="u-full-width"
+                  name="author"
+                  type="text"
+                  placeholder="author:"
+                  id="author-input"
+                  minlength="2"
+                  maxlength="20"
+                  required
+                />
+              </div>
+              <div class="two columns">
+                <label for="num-input">Number of pages</label>
+                <input
+                  class="u-full-width"
+                  name="pages"
+                  type="number"
+                  placeholder=""
+                  id="num-input"
+                  min="1"
+                  value="0"
+                />
               </div>
               <div class="three columns">
                 <fieldset class="radio-select">
                   <legend class="radio-select__title">Status</legend>
                   <div class="radio-select__inner">
                     <label class="radio-label">
-                      <input type="radio" name="status" value="read" id="read" />
+                      <input type="radio" name="status" value="read" id="read" required />
                       READ
                     </label>
                     <label class="radio-label">
-                      <input type="radio" name="status" value="unread" id="unread" />
+                      <input type="radio" name="status" value="unread" id="unread" required />
                       UNREAD
                     </label>
                   </div>
@@ -76,18 +106,12 @@
               <tr>
                 <th>Book</th>
                 <th>Author</th>
+                <th>Number of pages</th>
                 <th>Status toggle</th>
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody class="tbody">
-              <tr>
-                <td>Dwayne Johnson</td>
-                <td>Pavel</td>
-                <td><a class="button status-btn" data-status="read" href="#">READ</a></td>
-                <td><button class="button button--danger">Delete</button></td>
-              </tr>
-            </tbody>
+            <tbody class="tbody"></tbody>
           </table>
         </div>
       </section>
