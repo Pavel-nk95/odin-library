@@ -36,7 +36,7 @@
     <main class="main">
       <section class="form">
         <div class="container">
-          <form>
+          <form name="test" method="post">
             <div class="row form__row">
               <div class="four columns">
                 <label for="book-input">Book</label>
@@ -47,11 +47,19 @@
                 <input class="u-full-width" type="text" placeholder="name" id="author-input" />
               </div>
               <div class="three columns">
-                <label for="status-input">Status</label>
-                <select class="u-full-width" id="status-input">
-                  <option value="read">Read</option>
-                  <option value="unread">Unread</option>
-                </select>
+                <fieldset class="radio-select">
+                  <legend class="radio-select__title">Status</legend>
+                  <div class="radio-select__inner">
+                    <label class="radio-label">
+                      <input type="radio" name="status" value="read" id="read" />
+                      READ
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="status" value="unread" id="unread" />
+                      UNREAD
+                    </label>
+                  </div>
+                </fieldset>
               </div>
               <div class="two columns submit-btn">
                 <button class="button button--sucsess" type="submit">Submit</button>
@@ -74,15 +82,9 @@
             </thead>
             <tbody class="tbody">
               <tr>
-                <td>Dave Gamache</td>
-                <td>Pavel</td>
-                <td><a class="button" href="#">READ</a></td>
-                <td><button class="button button--danger">Delete</button></td>
-              </tr>
-              <tr>
                 <td>Dwayne Johnson</td>
                 <td>Pavel</td>
-                <td><a class="button" href="#">READ</a></td>
+                <td><a class="button status-btn" data-status="read" href="#">READ</a></td>
                 <td><button class="button button--danger">Delete</button></td>
               </tr>
             </tbody>

@@ -956,3 +956,14 @@ select {
       background-color: #166534; }
     .button--sucsess:focus {
       color: #ffffff; }
+
+.radio-select {
+  margin: 0; }
+  .radio-select__title {
+    margin-bottom: 10px; }
+  .radio-select__inner {
+    display: flex;
+    margin-bottom: 4px; }
+
+.radio-label:last-child {
+  margin-left: 20px; }

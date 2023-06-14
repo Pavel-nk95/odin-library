@@ -160,3 +160,18 @@ select {
     }
   }
 }
+
+.radio-select {
+  margin: 0;
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__inner {
+    display: flex;
+    margin-bottom: 4px;
+  }
+}
+
+.radio-label:last-child {
+  margin-left: 20px;
+}
