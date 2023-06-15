@@ -12,16 +12,18 @@
       rel="stylesheet"
     />
     <link rel="icon" href="./svg/favicon.svg" sizes="any" type="image/svg+xml" />
-    <script src="./js/main.js" defer></script>
+    <script type="module" src="./js/main.js" defer></script>
     <link rel="stylesheet" href="./css/app.css" />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="row header__row">
-          <div class="six columns"><h1 class="header__title">ODIN-LIBRARY</h1></div>
-          <div class="six columns nav">
-            <button class="button">LOGIN</button>
+          <div class="six columns">
+            <h1 class="header__title">ODIN-LIBRARY</h1>
+          </div>
+          <div class="six columns clear-btn">
+            <button class="button" type="submit">Clear storage</button>
           </div>
         </div>
         <div class="row header__desc">
@@ -36,7 +38,7 @@
     <main class="main">
       <section class="main-form">
         <div class="container">
-          <form class="form" name="test" method="post">
+          <form class="form">
             <div class="row form__row">
               <div class="three columns">
                 <label for="book-input">Book</label>

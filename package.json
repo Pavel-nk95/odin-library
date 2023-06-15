@@ -1,6 +1,7 @@
 {
   "name": "odin-library",
   "version": "0.1.0",
+  "type": "module",
   "description": "Training project within the course: 'Odin project' JavaScript fullstack developer",
   "repository": {
     "type": "git",

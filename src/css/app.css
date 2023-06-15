@@ -931,6 +931,10 @@ select {
   display: flex;
   justify-content: flex-end; }
 
+.clear-btn {
+  display: flex;
+  justify-content: flex-end; }
+
 .button {
   transition: background-color 0.3s ease-in-out;
   margin: 0; }
@@ -967,3 +971,15 @@ select {
 
 .radio-label:last-child {
   margin-left: 20px; }
+
+@media (max-width: 750px) {
+  .row.form__row {
+    flex-wrap: wrap; }
+  .two.columns {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px; }
+  .three.columns {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0; } }

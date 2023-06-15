@@ -1,68 +1,94 @@
-'use strict';
+import Book from './book.js';
 
 const form = document.querySelector('.form');
 const tbody = document.querySelector('.tbody');
+const clearBtn = document.querySelector('.clear-btn');
 
 let myLibrary = [];
-
-if (JSON.parse(localStorage.getItem('books')).length > 0) {
-  myLibrary = [...JSON.parse(localStorage.getItem('books'))];
-  renderBooks(myLibrary);
-}
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
   addBookToLibrary(event.target);
+  event.target.reset();
+});
+
+clearBtn.addEventListener('click', () => {
+  localStorage.clear();
+  myLibrary = [];
+  renderBooks(myLibrary);
 });
 
 function deleteBook(id) {
-  const newMyLibrary = myLibrary.filter((item) => item.id !== String(id));
+  const newMyLibrary = myLibrary.filter((book) => book.getId() !== String(id));
   myLibrary = newMyLibrary;
   renderBooks(myLibrary);
 }
 
 function toggleStatus(status, id) {
-  const newStatus = status.value === 'unread' ? 'read' : 'unread';
-  const newMyLibrary = myLibrary.map((item) => {
-    if (item.id === String(id)) {
-      item.status = newStatus;
+  const newMyLibrary = myLibrary.map((book) => {
+    if (book.getId() === String(id)) {
+      book.setStatus(status);
     }
-    return item;
+    return book;
   });
   myLibrary = newMyLibrary;
   renderBooks(myLibrary);
 }
 
-function Book() {
-  // the constructor...
-}
-
 function renderBooks(library) {
-  localStorage.setItem('books', JSON.stringify(library));
   tbody.innerHTML = '';
-  library.forEach((data) => {
-    const { id, book, author, pages, status } = data;
+  library.forEach((book) => {
     tbody.insertAdjacentHTML(
       'beforeend',
-      `<tr class="book" data-id="${id}">
-                <td>${book}</td>
-                <td>${author}</td>
-                <td>${pages}</td>
-                <td><button class="button status-btn" onclick="toggleStatus(${status}, ${id})">${status}</button></td>
-                <td><button class="button button--danger" onclick="deleteBook(${id})">Delete</button></td>
+      `<tr class="book" data-id="${book.getId()}">
+                <td>${book.getName()}</td>
+                <td>${book.getAuthor()}</td>
+                <td>${book.getPages()}</td>
+                <td><button class="button status-btn">${book.getStatus()}</button></td>
+                <td><button class="button button--danger delete-btn">Delete</button></td>
               </tr>`,
     );
+    addListenersForBook(book);
   });
+}
+
+function addListenersForBook(book) {
+  tbody
+    .querySelector(`[data-id="${book.getId()}"] > td > .status-btn`)
+    .addEventListener('click', () => {
+      toggleStatus(book.toggleStatus(), book.getId());
+    });
+  tbody
+    .querySelector(`[data-id="${book.getId()}"] > td > .delete-btn`)
+    .addEventListener('click', () => {
+      deleteBook(book.getId());
+    });
+}
+
+function initApp() {
+  const booksJSON = localStorage.getItem('books');
+  if (booksJSON !== null) {
+    myLibrary.push(
+      ...JSON.parse(booksJSON).map(
+        ({ id, book, author, pages, status }) => new Book(id, book, author, pages, status),
+      ),
+    );
+    renderBooks(myLibrary);
+  }
 }
 
 function addBookToLibrary(target) {
   const data = new FormData(target);
   data.append('id', myLibrary.length + 1);
-  const newBook = {};
+  const newData = {};
   for (let [name, value] of data) {
-    newBook[name] = value;
+    newData[name] = value;
   }
+  const { id, book, author, pages, status } = newData;
+  const newBook = new Book(id, book, author, pages, status);
   myLibrary.push(newBook);
+  localStorage.setItem('books', JSON.stringify(myLibrary));
   renderBooks(myLibrary);
-  target.reset();
 }
+
+initApp();
